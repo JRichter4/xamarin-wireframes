@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Wireframes.Views.TagDetailPage"
+             x:Class="Wireframes.Views.TagAddPage"
              xmlns:localViews="clr-namespace:Wireframes.Views"
-             Title="Update Tag">
+             Title="Add Tag">
     
     <ContentPage.Content>
         <StackLayout>
             <localViews:TagDetailView/>
-            <Button Text="Update" Command="{Binding SaveTagCommand}"/>
+            <Button Text="Save" Command="{Binding SaveTagCommand}"/>
         </StackLayout>
     </ContentPage.Content>
-
+    
 </ContentPage>

@@ -53,7 +53,7 @@ namespace Wireframes.ViewModels {
                 Tags.Add(new TagViewModel(tag));
             };
 
-            await pageService.PushAsync(new TagDetailPage(viewModel));
+            await pageService.PushAsync(new TagAddPage(viewModel));
         }
 
         private async Task SelectTag(TagViewModel tag) {
