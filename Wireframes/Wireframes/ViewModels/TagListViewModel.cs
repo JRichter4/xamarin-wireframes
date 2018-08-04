@@ -73,7 +73,7 @@ namespace Wireframes.ViewModels {
 
         private async Task DeleteTag(TagViewModel viewModel) {
             var userConfirm = await pageService.DisplayAlert(
-                "Confirm", $"Are you sure you want to delete the {viewModel.Name} Tag?", "Yes", "No");
+                "Confirm", $"Are you sure you want to delete the \"{viewModel.Name}\" Tag?", "Yes", "No");
 
             if (userConfirm) {
                 Tags.Remove(viewModel);

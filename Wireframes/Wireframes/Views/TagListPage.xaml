@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Wireframes.Views.TagListPage"
-             Title="Tags">
+             x:Name="page" Title="Tags">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Command="{Binding AddTagCommand}"/>
@@ -15,15 +15,11 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell Text="{Binding Name}">
-                        <!--<TextCell.ContextActions>
-                            <MenuItem Text="Delete" IsDestructive="True"
-                                      Command="{Binding DeleteTagCommand}"/>
-                        </TextCell.ContextActions>-->
-                        <!--<TextCell.ContextActions>
+                        <TextCell.ContextActions>
                             <MenuItem Text="Delete" IsDestructive="True"                                      
                                       Command="{Binding Source={x:Reference page}, Path=ViewModel.DeleteTagCommand}"
                                       CommandParameter="{Binding .}"/>
-                        </TextCell.ContextActions>-->
+                        </TextCell.ContextActions>
                     </TextCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
