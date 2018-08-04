@@ -1,9 +1,13 @@
+using SQLite;
+using Wireframes.Helpers;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Wireframes {
     public partial class App : Application {
+        private static SQLiteWireframeDB wireframeDB;
+
         public App() {
             InitializeComponent();
             MainPage = new NavigationPage(new MainPage());
@@ -19,6 +23,16 @@ namespace Wireframes {
 
         protected override void OnResume() {
             // Handle when your app resumes
+        }
+
+        public static SQLiteWireframeDB WireframeDatabase {
+            get {
+                if (wireframeDB == null) {
+                    wireframeDB = new SQLiteWireframeDB();
+                }
+
+                return wireframeDB;
+            }
         }
     }
 }

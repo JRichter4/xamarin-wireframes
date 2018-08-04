@@ -2,13 +2,11 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Wireframes"
-             x:Class="Wireframes.MainPage">
+             x:Class="Wireframes.MainPage"
+             Title="Wireframes App">
 
     <StackLayout>
-        <!-- Place new controls here -->
-    	<Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+        <Button x:Name="ViewTagsButton" Text="View Tags" Clicked="ViewTagsButton_Clicked"/>
     </StackLayout>
 
 </ContentPage>
