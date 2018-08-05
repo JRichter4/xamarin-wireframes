@@ -10,5 +10,9 @@ namespace Wireframes {
         private async void ViewTagsButton_Clicked(object sender, System.EventArgs e) {
             await Navigation.PushAsync(new TagListPage());
         }
+
+        private async void ViewWireframesButton_Clicked(object sender, System.EventArgs e) {
+            await Navigation.PushAsync(new WireframeListPage());
+        }
     }
 }

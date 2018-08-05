@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Wireframes.Views.WireframeDetailView">
+  <ContentView.Content>
+        <ScrollView>
+            <StackLayout Padding="15,15,15,0" Margin="0">
+                <Label Text="Title" FontAttributes="Bold"/>
+                <Entry Text="{Binding Path=Wireframe.Title}"
+                           Placeholder="My Wireframe Title"/>
+
+                <Label Text="Description" FontAttributes="Bold"/>
+                <Entry Text="{Binding Path=Wireframe.Description}" Placeholder="My Wireframe Description"/>
+
+                <Label Text="Created Date" FontAttributes="Bold"/>
+                <DatePicker Date="{Binding Path=Wireframe.Date}" />
+
+                <!--<StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Tags" VerticalOptions="Center" FontAttributes="Bold"/>
+                        <Button Text="+ Add" WidthRequest="60" HeightRequest="35"
+                                HorizontalOptions="Fill" BorderRadius="20"
+                                FontSize="Micro" FontAttributes="Bold" Margin="0"
+                                BackgroundColor="#2196F3" TextColor="White"/>
+                    </StackLayout>
+
+                    <BoxView Color="Gray" HeightRequest="1" Margin="5,10"/>
+                </StackLayout>-->
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="15">
+                    <Button Text="Capture New Picture" Command="{Binding CapturePictureCommand}"/>
+                    <Button Text="Select from Gallery" Command="{Binding SelectPictureCommand}"/>
+                </StackLayout>
+
+                <StackLayout Margin="10, 10, 10, 10">
+                    <Image Source="{Binding Path=Wireframe.FileLocation}" HorizontalOptions="StartAndExpand"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentView.Content>
+</ContentView>

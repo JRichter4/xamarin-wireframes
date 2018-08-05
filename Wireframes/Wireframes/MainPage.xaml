@@ -7,6 +7,7 @@
 
     <StackLayout>
         <Button x:Name="ViewTagsButton" Text="View Tags" Clicked="ViewTagsButton_Clicked"/>
+        <Button x:Name="ViewWireframesButton" Text="View Wireframes" Clicked="ViewWireframesButton_Clicked"/>
     </StackLayout>
 
 </ContentPage>

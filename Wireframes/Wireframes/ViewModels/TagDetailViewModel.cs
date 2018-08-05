@@ -29,7 +29,6 @@ namespace Wireframes.ViewModels {
             Tag = new Tag {
                 TagId = viewModel.TagId,
                 Name = viewModel.Name,
-                WireframeId = viewModel.WireframeId
             };
         }
 

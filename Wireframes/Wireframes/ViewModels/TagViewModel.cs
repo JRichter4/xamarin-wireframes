@@ -7,7 +7,6 @@ namespace Wireframes.ViewModels {
         public TagViewModel(Tag tag) {
             TagId = tag.TagId;
             name = tag.Name;
-            WireframeId = tag.WireframeId;
         }
                 
         public int TagId { get; set; }
@@ -20,7 +19,5 @@ namespace Wireframes.ViewModels {
                 OnPropertyChanged(nameof(Name));
             }
         }
-
-        public int WireframeId { get; set; }
     }
 }

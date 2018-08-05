@@ -11,12 +11,12 @@
     <ContentPage.Content>
         <ListView ItemsSource="{Binding Tags}"
                   SelectedItem="{Binding SelectedTag}"
-                  ItemSelected="OnTagSelected">
+                  HasUnevenRows="True">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell Text="{Binding Name}">
                         <TextCell.ContextActions>
-                            <MenuItem Text="Delete" IsDestructive="True"                                      
+                            <MenuItem Text="Delete" IsDestructive="True"
                                       Command="{Binding Source={x:Reference page}, Path=ViewModel.DeleteTagCommand}"
                                       CommandParameter="{Binding .}"/>
                         </TextCell.ContextActions>

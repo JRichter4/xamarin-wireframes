@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Wireframes.Interfaces;
-using Wireframes.Models;
 using Wireframes.Views;
 using Xamarin.Forms;
 
@@ -22,7 +21,10 @@ namespace Wireframes.ViewModels {
         private TagViewModel selectedTag;
         public TagViewModel SelectedTag {
             get { return selectedTag; }
-            set { SetValue(ref selectedTag, value); }
+            set {
+                SetValue(ref selectedTag, value);
+                SelectTagCommand.Execute(selectedTag);
+            }
         }
 
         public TagListViewModel(ITagStore store, IPageService service) {
@@ -32,18 +34,19 @@ namespace Wireframes.ViewModels {
             // Commands
             LoadDataCommand = new Command(async () => await LoadData());
             AddTagCommand = new Command(async () => await AddTag());
-            SelectTagCommand = new Command<TagViewModel>(async tag => await SelectTag(tag));
-            DeleteTagCommand = new Command<TagViewModel>(async tag => await DeleteTag(tag));
+            SelectTagCommand = new Command<TagViewModel>(async t => await SelectTag(t));
+            DeleteTagCommand = new Command<TagViewModel>(async t => await DeleteTag(t));
         }
 
         private async Task LoadData() {
             if (isDataLoaded) { return; }
-            isDataLoaded = true;
 
             var tags = await tagStore.GetAllTags();
             foreach (var tag in tags) {
                 Tags.Add(new TagViewModel(tag));
             }
+
+            isDataLoaded = true;
         }
 
         private async Task AddTag() {
@@ -65,7 +68,6 @@ namespace Wireframes.ViewModels {
             tagViewModel.TagUpdated += (source, updatedTag) => {
                 tag.TagId = updatedTag.TagId;
                 tag.Name = updatedTag.Name;
-                tag.WireframeId = updatedTag.WireframeId;
             };
 
             await pageService.PushAsync(new TagDetailPage(tagViewModel));

@@ -5,6 +5,5 @@ namespace Wireframes.Models {
         [PrimaryKey, AutoIncrement]
         public int TagId { get; set; }
         public string Name { get; set; }
-        public int WireframeId { get; set; }
     }
 }

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Wireframes.Views.WireframeAddPage"
+             xmlns:localViews="clr-namespace:Wireframes.Views"
+             Title="Add Wireframe">
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Add a New Wireframe" FontSize="Large"
+                   FontAttributes="Bold" HorizontalOptions="CenterAndExpand"/>
+            <localViews:WireframeDetailView/>
+            <Button Text="Save" Command="{Binding SaveWireframeCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+    
+</ContentPage>
