@@ -16,7 +16,9 @@ namespace Wireframes.ViewModels {
         public ICommand SelectTagCommand { get; private set; }
         public ICommand DeleteTagCommand { get; private set; }
 
-        public ObservableCollection<TagViewModel> Tags { get; private set; } = new ObservableCollection<TagViewModel>();
+        public ObservableCollection<TagViewModel> Tags {
+            get; private set;
+        } = new ObservableCollection<TagViewModel>();
 
         private TagViewModel selectedTag;
         public TagViewModel SelectedTag {
