@@ -5,7 +5,8 @@
   <ContentView.Content>
         <ListView ItemsSource="{Binding Wireframes}"
                   SelectedItem="{Binding SelectedWireframe}"
-                  HasUnevenRows="True" RowHeight="60">
+                  HasUnevenRows="True" RowHeight="60"
+                  CachingStrategy="RecycleElement">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

@@ -8,11 +8,8 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Command="{Binding AddWireframeCommand}"/>
     </ContentPage.ToolbarItems>
-    
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Wireframe List" FontSize="Large" FontAttributes="Bold"/>
-            <localViews:WireframeListView/>
-        </StackLayout>
+        <localViews:WireframeListView/>
     </ContentPage.Content>
 </ContentPage>
