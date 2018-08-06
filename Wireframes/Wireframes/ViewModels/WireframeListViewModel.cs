@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Wireframes.Interfaces;
@@ -15,10 +16,25 @@ namespace Wireframes.ViewModels {
         public ICommand LoadDataCommand { get; private set; }
         public ICommand AddWireframeCommand { get; private set; }
         public ICommand SelectWireframeCommand { get; private set; }
+        public ICommand SearchWireframesCommand { get; private set; }
 
+        public bool IsSearchable { get; private set; }
+
+        private string searchBarText;
+        public string SearchBarText {
+            get { return searchBarText; }
+            set {
+                searchBarText = value;
+                SearchWireframesCommand.Execute(searchBarText);
+            }
+        }
+        
         public ObservableCollection<WireframeViewModel> Wireframes {
             get; private set;
         } = new ObservableCollection<WireframeViewModel>();
+
+        private ObservableCollection<WireframeViewModel> allWireframes =
+            new ObservableCollection<WireframeViewModel>();
 
         private WireframeViewModel selectedWireframe;
         public WireframeViewModel SelectedWireframe {
@@ -29,13 +45,15 @@ namespace Wireframes.ViewModels {
             }
         }
 
-        public WireframeListViewModel(IWireframeStore store, IPageService service) {
+        public WireframeListViewModel(bool searchBar, IWireframeStore store, IPageService service) {
             wireframeStore = store;
             pageService = service;
+            IsSearchable = searchBar;
 
             LoadDataCommand = new Command(async () => await LoadData());
             AddWireframeCommand = new Command(async () => await AddWireframe());
             SelectWireframeCommand = new Command<WireframeViewModel>(async w => await SelectWireframe(w));
+            SearchWireframesCommand = new Command<string>(t => SearchWireframes(t));
         }
 
         private async Task LoadData() {
@@ -47,6 +65,7 @@ namespace Wireframes.ViewModels {
             }
 
             isDataLoaded = true;
+            allWireframes = Wireframes;
         }
 
         private async Task AddWireframe() {
@@ -76,6 +95,12 @@ namespace Wireframes.ViewModels {
             };
 
             await pageService.PushAsync(new WireframeDetailPage(wireframeViewModel));
+        }
+
+        private void SearchWireframes(string searchText) {
+            var results = allWireframes.Where(x => x.Title.Contains(searchText));
+            Wireframes = new ObservableCollection<WireframeViewModel>(results);
+            OnPropertyChanged(nameof(Wireframes));
         }
     }
 }

@@ -11,10 +11,11 @@ namespace Wireframes.Views {
             set { BindingContext = value; }
         }
 
-        public WireframeListPage() {
+        public WireframeListPage(bool searchBar) {
             var pageService = new PageService();
             var wireframeStore = new SQLiteWireframeStore(App.WireframeDatabase);
-            ViewModel = new WireframeListViewModel(wireframeStore, pageService);
+            ViewModel = new WireframeListViewModel(searchBar, wireframeStore, pageService);
+            
 
             InitializeComponent();
         }

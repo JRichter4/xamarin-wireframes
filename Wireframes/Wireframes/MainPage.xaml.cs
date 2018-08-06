@@ -12,7 +12,11 @@ namespace Wireframes {
         }
 
         private async void ViewWireframesButton_Clicked(object sender, System.EventArgs e) {
-            await Navigation.PushAsync(new WireframeListPage());
+            await Navigation.PushAsync(new WireframeListPage(false));
+        }
+
+        private async void SearchWireframesButton_Clicked(object sender, System.EventArgs e) {
+            await Navigation.PushAsync(new WireframeListPage(true));
         }
     }
 }
