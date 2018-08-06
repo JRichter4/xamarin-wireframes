@@ -44,6 +44,12 @@ namespace Wireframes.ViewModels {
             };
         }
 
+        private string tagName;
+        public string TagName {
+            get { return tagName; }
+            set { tagName = value; }
+        }
+
         #region Commands
         private async Task SaveWireframe() {
             if (string.IsNullOrWhiteSpace(Wireframe.Title)) {
@@ -88,6 +94,8 @@ namespace Wireframes.ViewModels {
                 Wireframe.FileName = options.Name;
                 Wireframe.FileLocation = capturedImage.Path;
                 Wireframe.FileDate = currentDateTime;
+
+                OnPropertyChanged(nameof(Wireframe));
             } else {
                 await App.Current.MainPage.DisplayAlert(
                     "Cannot Take Photo", "This device does not support taking a photo", "OK");
