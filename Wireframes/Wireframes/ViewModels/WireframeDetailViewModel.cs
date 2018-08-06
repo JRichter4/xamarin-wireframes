@@ -51,6 +51,11 @@ namespace Wireframes.ViewModels {
                 return;
             }
 
+            if (string.IsNullOrWhiteSpace(Wireframe.FileLocation)) {
+                await pageService.DisplayAlert("Error", "You Must Select a Picture", "OK");
+                return;
+            }
+
             if (Wireframe.WireframeId == 0) {
                 await wireframeStore.AddWireframe(Wireframe);
                 WireframeAdded?.Invoke(this, Wireframe);
@@ -58,6 +63,8 @@ namespace Wireframes.ViewModels {
                 await wireframeStore.UpdateWireframe(Wireframe);
                 WireframeUpdated?.Invoke(this, Wireframe);
             }
+
+            OnPropertyChanged(nameof(Wireframes));
 
             await pageService.PopAsync();
         }
@@ -81,8 +88,6 @@ namespace Wireframes.ViewModels {
                 Wireframe.FileName = options.Name;
                 Wireframe.FileLocation = capturedImage.Path;
                 Wireframe.FileDate = currentDateTime;
-
-                OnPropertyChanged(nameof(Wireframe));
             } else {
                 await App.Current.MainPage.DisplayAlert(
                     "Cannot Take Photo", "This device does not support taking a photo", "OK");

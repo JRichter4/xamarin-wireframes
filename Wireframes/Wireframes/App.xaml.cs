@@ -1,5 +1,5 @@
-using SQLite;
 using Wireframes.Helpers;
+using Wireframes.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +10,7 @@ namespace Wireframes {
 
         public App() {
             InitializeComponent();
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new WireframesMainPage());
         }
 
         protected override void OnStart() {

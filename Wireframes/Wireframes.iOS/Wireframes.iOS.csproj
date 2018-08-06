@@ -162,4 +162,13 @@
       <Name>Wireframes</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\ic_search_wireframes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\ic_tag_wireframes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\ic_view_wireframes.png" />
+  </ItemGroup>
 </Project>

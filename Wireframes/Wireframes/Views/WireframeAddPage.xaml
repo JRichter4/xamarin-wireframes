@@ -7,10 +7,9 @@
     
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Add a New Wireframe" FontSize="Large"
-                   FontAttributes="Bold" HorizontalOptions="CenterAndExpand"/>
             <localViews:WireframeDetailView/>
-            <Button Text="Save" Command="{Binding SaveWireframeCommand}"/>
+            <Button Text="Save" Margin="10,0,10,0" BackgroundColor="#4BD865"
+                    Command="{Binding SaveWireframeCommand}"/>
         </StackLayout>
     </ContentPage.Content>
     

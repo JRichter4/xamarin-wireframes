@@ -1,16 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Wireframes.Views.WireframeDetailPage"
              xmlns:localViews="clr-namespace:Wireframes.Views"
-             Title="Wireframe Details">
-    
+             x:Class="Wireframes.Views.WireframeSearchPage"
+             Title="Search" Icon="ic_search_wireframes">
     <ContentPage.Content>
         <StackLayout>
-            <localViews:WireframeDetailView/>
-            <Button Text="Update" BackgroundColor="#4BD865"
-                    Command="{Binding SaveWireframeCommand}"/>
+            <SearchBar Placeholder="Search..."
+                       IsVisible="{Binding IsSearchable}"
+                       Text="{Binding SearchBarText}"/>
+            <localViews:WireframeListView/>
         </StackLayout>
     </ContentPage.Content>
-    
 </ContentPage>

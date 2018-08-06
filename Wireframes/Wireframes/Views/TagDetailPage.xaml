@@ -6,9 +6,10 @@
              Title="Tag Details">
     
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Padding="15">
             <localViews:TagDetailView/>
-            <Button Text="Update" Command="{Binding SaveTagCommand}"/>
+            <Button Text="Update" BackgroundColor="#4BD865"
+                    Command="{Binding SaveTagCommand}"/>
         </StackLayout>
     </ContentPage.Content>
 

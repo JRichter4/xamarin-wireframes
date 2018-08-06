@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Wireframes.Views.TagListPage"
-             x:Name="page" Title="Tags">
+             x:Name="page" Title="Tags" Icon="ic_tag_wireframes">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Command="{Binding AddTagCommand}"/>
